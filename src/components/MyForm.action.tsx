@@ -1,9 +1,15 @@
 "use server";
 
-export async function postForm(currentState: unknown, fd: FormData) {
-  console.log("postForm", { currentState, fd });
+function handle(fd: FormData) {
   if (!fd.get("name")) {
     return <div className="text-red">enter a name plz</div>;
   }
   return <div className="text-green">no issues!</div>;
+}
+
+export async function postForm(
+  currentState: ReturnType<typeof handle>,
+  fd: FormData,
+) {
+  return handle(fd);
 }
