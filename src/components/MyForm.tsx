@@ -6,10 +6,10 @@ import { useFormState, useFormStatus } from "react-dom";
 
 export function MyForm() {
   const formStatus = useFormStatus();
-  const [state] = useFormState(postForm, null);
-  console.log({ state });
+  const [state, action] = useFormState(postForm, null);
+  console.log({ state, formStatus });
   return (
-    <form action={postForm} className="p-4 flex flex-col space-y-4">
+    <form action={action} className="p-4 flex flex-col space-y-4">
       <label>
         Name <br />
         <input type="text" name="name" className="border" />
