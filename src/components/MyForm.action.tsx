@@ -11,5 +11,6 @@ export async function postForm(
   currentState: ReturnType<typeof handle>,
   fd: FormData,
 ) {
+  console.log({ currentState, fd });
   return handle(fd);
 }
